@@ -183,7 +183,7 @@ function App() {
         <div className="footer-main"><div className="footer-brand"><p>أثاث يصنع مساحة أجمل<br />لحياتك اليومية.</p></div>
           <div className="footer-col"><h3>تصفح منتجاتنا</h3><a href="/dining-tables" onClick={(event) => { event.preventDefault(); navigate('/dining-tables') }}>طاولات السفرة</a><a href="/baby-beds" onClick={(event) => { event.preventDefault(); navigate('/baby-beds') }}>تخوت البيبي</a></div>
           <div className="footer-col"><h3>نحن هنا لمساعدتك</h3><a href="tel:0792809592">0792809592</a><span>عمّان، الأردن</span></div>
-          <div className="footer-col footer-hours"><h3>زورونا بمعرضنا</h3><span>السبت – الجمعة</span><span>١٠ صباحاً – ٩ مساءً</span><a href="https://maps.google.com/?q=Amman+Jordan" target="_blank" rel="noreferrer">اعرف موقعنا <span>↗</span></a></div></div>
+          <div className="footer-col footer-hours"><h3>زورونا بمعرضنا</h3><span>السبت – الجمعة</span><span>١٠ صباحاً – ٩ مساءً</span><a href="https://maps.app.goo.gl/ixmsMRXsUQoKo6g69" target="_blank" rel="noreferrer">موقع المعرض <span>↗</span></a></div></div>
         <div className="footer-bottom"><span>© ٢٠٢٦ لاندمارك للمفروشات. جميع الحقوق محفوظة.</span></div>
       </footer>
 
