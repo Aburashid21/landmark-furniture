@@ -84,7 +84,7 @@
 .footer-brand .brand { color: #f3f0e8; }.footer-brand .brand-icon { color: #f3f0e8; }.footer-brand .brand-copy small { color: #a6ada2; }
 .footer-brand p { color: #b7beb4; font-size: 10px; line-height: 2; margin-top: 18px; }
 .footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; color: #c1c7bf; font-size: 10px; }
-.footer-col h3 { color: white; font-size: 11px; font-weight: 500; margin: 4px 0 8px; }
+.footer-col h3 { color: white; font-size: 14px; font-weight: 600; margin: 4px 0 8px; }
 .footer-col a:hover { color: white; }.footer-hours a { margin-top: 3px; color: #e2c9a6; }
 .footer-bottom { min-height: 50px; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; align-items: center; color: #aeb6aa; font-size: 9px; }
 .footer-bottom b { font-size: 13px; color: #c6a378; margin-right: 5px; }
@@ -94,13 +94,23 @@
 /* Refined luxury storefront finish */
 .topline { min-height: 34px; background: #26382e; color: #e2e4dc; font-size: 9px; letter-spacing: .02em; }
 .topline > span:nth-child(2) { color: #c2c9bd; }
+.topline > span:first-child { font-size: 12px; font-weight: 500; letter-spacing: 0; }
 .site-header { height: 88px; position: relative; z-index: 2; max-width: 1500px; padding-inline: 6.4%; background: var(--paper); }
 .brand { gap: 12px; }
 .brand-icon { font-size: 42px; }
 .brand-copy strong { font-size: 12px; letter-spacing: .22em; }
 .brand-copy small { font-size: 7px; letter-spacing: .19em; }
-.main-nav { gap: clamp(23px, 3vw, 46px); }
-.main-nav a { font-size: 11px; }
+.main-nav { gap: clamp(24px, 3vw, 44px); }
+.main-nav a {
+  font-family: 'Noto Sans Arabic', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(37,40,32,.07);
+  transition: color .2s ease, text-shadow .2s ease, transform .2s ease;
+}
+.main-nav a:hover { transform: translateY(-1px); text-shadow: 0 2px 5px rgba(52,74,62,.14); }
+.main-nav a.active { font-weight: 700; }
+.main-nav a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 .header-contact { border-radius: 0; padding: 12px 17px; min-height: 42px; font-size: 10px; letter-spacing: .01em; }
 .header-contact svg { width: 15px; height: 15px; fill: currentColor; }
 .hero { height: clamp(540px, 49vw, 690px); min-height: 0; }
@@ -153,7 +163,7 @@
 .site-footer { background: #26382e; padding-top: 75px; }
 .footer-main { max-width: 1320px; margin: auto; grid-template-columns: 1.45fr 1fr 1.4fr 1fr; gap: 48px; padding-bottom: 63px; }
 .footer-col { font-size: 10px; gap: 14px; }
-.footer-col h3 { margin-bottom: 11px; font-size: 11px; letter-spacing: .01em; }
+.footer-col h3 { margin-bottom: 11px; font-size: 14px; font-weight: 600; letter-spacing: .01em; }
 .footer-brand p { font-size: 11px; line-height: 2.2; }
 .footer-bottom { max-width: 1320px; margin: auto; min-height: 57px; }
 .whatsapp-float { left: 26px; bottom: 25px; width: 58px; height: 58px; box-shadow: 0 7px 24px rgba(20,49,31,.3); outline: 5px solid rgba(37,211,102,.12); }
@@ -248,7 +258,7 @@
   .footer-main { grid-template-columns: 1fr 1fr; gap: 31px 17px; padding-bottom: 37px; }
   .footer-brand { grid-column: span 2; }
   .footer-col { font-size: 9px; gap: 10px; }
-  .footer-col h3 { font-size: 10px; }
+  .footer-col h3 { font-size: 12px; }
   .footer-bottom { align-items: flex-start; justify-content: center; flex-direction: column; padding: 12px 0; gap: 7px; font-size: 8px; }
   .whatsapp-float { width: 51px; height: 51px; left: 16px; bottom: 16px; }
   .whatsapp-float::after { display: none; }
@@ -257,7 +267,7 @@
 @media (min-width: 1500px) { .hero { max-height: 680px; } }
 @media (max-width: 850px) {
   .topline { padding-inline: 4%; }.topline > span:nth-child(2) { display: none; }
-  .site-header { height: 78px; padding-inline: 4%; gap: 16px; }.main-nav { gap: 17px; }.main-nav a { font-size: 10px; }.header-contact { padding: 10px 12px; font-size: 10px; }
+  .site-header { height: 78px; padding-inline: 4%; gap: 16px; }.main-nav { gap: 16px; }.main-nav a { font-size: 11px; }.header-contact { padding: 10px 12px; font-size: 10px; }
   .hero { min-height: 500px; height: 66vw; }.hero-copy { right: 7%; width: 55%; }.hero-stamp { left: 7%; }
   .intro-strip { padding-inline: 6%; grid-template-columns: 1fr 2fr; }.intro-strip > a { grid-column: 2; justify-content: flex-start; }
   .section { padding-inline: 5%; }.category-grid { grid-template-rows: 190px 190px; gap: 10px; }
@@ -265,9 +275,9 @@
   .site-footer { padding-inline: 5%; }
 }
 @media (max-width: 600px) {
-  .topline { height: 31px; font-size: 9px; justify-content: center; }.topline > span:first-child { display: none; }
+  .topline { height: 31px; font-size: 9px; justify-content: space-between; gap: 8px; }.topline > span:first-child { display: block; flex-shrink: 0; font-size: 10px; white-space: nowrap; }.topline a { font-size: 8px; white-space: nowrap; }
   .site-header { height: auto; min-height: 74px; padding: 12px 5%; flex-wrap: wrap; }.brand-icon { font-size: 33px; }.brand-copy strong { font-size: 11px; }.brand-copy small { font-size: 7px; }
-  .header-contact { margin-right: auto; }.main-nav { order: 3; width: 100%; justify-content: space-between; gap: 10px; border-top: 1px solid #ece9e1; padding-top: 8px; }.main-nav a { font-size: 10px; }
+  .header-contact { margin-right: auto; }.main-nav { order: 3; width: 100%; justify-content: space-between; gap: 10px; border-top: 1px solid #ece9e1; padding-top: 8px; }.main-nav a { font-size: 11px; }
   .hero { min-height: 540px; height: 145vw; max-height: 680px; }.hero-image { object-position: 57% center; }.hero-shade { background: linear-gradient(0deg, rgba(22,29,23,.81), rgba(22,29,23,.15) 100%); }
   .hero-copy { top: auto; bottom: 89px; right: 7%; transform: none; width: 86%; }.hero h1 { font-size: 52px; margin: 15px 0 9px; }.hero-copy p { font-size: 11px; max-width: 300px; }.button { margin-top: 18px; }.hero-stamp { left: 8%; top: 9%; width: 62px; height: 62px; }.hero-note { bottom: 27px; left: 6%; }
   .intro-strip { min-height: auto; grid-template-columns: 1fr; gap: 10px; padding: 27px 7%; }.intro-strip p { font-size: 15px; }.intro-strip > a { grid-column: auto; }
@@ -305,7 +315,7 @@
 
 @media (max-width: 600px) {
   .site-header .main-nav { width: calc(100% + 10.5vw); margin: 13px -5.25vw 0; padding: 0 5% 11px; justify-content: space-between; gap: 12px; }
-  .site-header .main-nav a { flex: 0 0 auto; margin: 0; padding-block: 8px; font-size: 10px; }
+  .site-header .main-nav a { flex: 0 0 auto; margin: 0; padding-block: 8px; font-size: 11px; }
 }
 
 /* Homepage hero */

@@ -68,7 +68,7 @@ function App() {
 
   return (
     <div className="site-shell" dir="rtl">
-      <div className="topline"><span>أهلاً بكم في لاند مارك للأثاث</span><span>توصيل وتركيب في جميع أنحاء الأردن</span><a href="tel:+96265551234">للاستفسار: ‎+962 6 555 1234</a></div>
+      <div className="topline"><span>أهلاً بكم في لاندمارك للمفروشات</span><span>توصيل وتركيب في جميع أنحاء الأردن</span><a href="tel:+962792809592">للاستفسار: ‎+962 7 9280 9592</a></div>
       <header className="site-header" id="home">
         <BrandMark />
         <nav className="main-nav" aria-label="القائمة الرئيسية">
@@ -76,7 +76,7 @@ function App() {
           <a className={currentPath === '/dining-tables' ? 'active' : ''} href="/dining-tables" aria-current={currentPath === '/dining-tables' ? 'page' : undefined} onClick={(event) => { event.preventDefault(); navigate('/dining-tables') }}>طاولات الطعام</a>
           <a className={currentPath === '/baby-beds' ? 'active' : ''} href="/baby-beds" aria-current={currentPath === '/baby-beds' ? 'page' : undefined} onClick={(event) => { event.preventDefault(); navigate('/baby-beds') }}>تخوت البيبي</a>
         </nav>
-        <a className="header-contact" href="https://wa.me/962790000000" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L.1 24l6.4-1.7a12 12 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.7a10 10 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a10 10 0 0 1 2.9 7.1c0 5.4-4.5 9.9-10 9.9Z"/></svg> تواصل معنا</a>
+        <a className="header-contact" href="https://wa.me/962792809592" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L.1 24l6.4-1.7a12 12 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.7a10 10 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a10 10 0 0 1 2.9 7.1c0 5.4-4.5 9.9-10 9.9Z"/></svg> تواصل معنا</a>
       </header>
 
       <main>
@@ -151,7 +151,6 @@ function App() {
         <section className="intro-strip" id="about">
           <span className="intro-label">لاند مارك للأثاث <i>✳</i></span>
           <p>منزلُك يعكسُك. اختر قطعاً تشبهك، ونساعدك أن تصنع مساحةً تحبّ العودة إليها.</p>
-          <a href="#featured">حكايتنا <span>←</span></a>
         </section>
 
         <section className="section categories-section" id="categories">
@@ -173,7 +172,7 @@ function App() {
         </section>
 
         <section className="service-banner">
-          <div><span className="section-kicker">من عمّان إلى بيتك</span><h2>اختيارك علينا،<br />والراحة في بيتك.</h2><p>فريقنا جاهز يساعدك تختار القطعة المناسبة ويوصلها لباب بيتك.</p><a className="button button-dark" href="https://wa.me/962790000000" target="_blank" rel="noreferrer">احكِ مع مستشارنا <span>←</span></a></div>
+          <div><span className="section-kicker">من عمّان إلى بيتك</span><h2>اختيارك علينا،<br />والراحة في بيتك.</h2><p>فريقنا جاهز يساعدك تختار القطعة المناسبة ويوصلها لباب بيتك.</p></div>
           <img src={photo('photo-1600210492486-724fe5c67fb0', 1100)} alt="أثاث منزلي مريح بتصميم عصري" loading="lazy" />
           <span className="banner-number">L / 01</span>
         </section>
@@ -181,14 +180,14 @@ function App() {
       </main>
 
       <footer className="site-footer" id="contact">
-        <div className="footer-main"><div className="footer-brand"><BrandMark /><p>أثاث يصنع مساحة أجمل<br />لحياتك اليومية.</p></div>
-          <div className="footer-col"><h3>تجوّل</h3><a href="/dining-tables" onClick={(event) => { event.preventDefault(); navigate('/dining-tables') }}>طاولات الطعام</a><a href="/baby-beds" onClick={(event) => { event.preventDefault(); navigate('/baby-beds') }}>تخوت البيبي</a></div>
-          <div className="footer-col"><h3>نحن هنا لمساعدتك</h3><a href="tel:+96265551234">+962 6 555 1234</a><a href="mailto:hello@landmarkfurniture.jo">hello@landmarkfurniture.jo</a><span>عمّان، الأردن</span></div>
-          <div className="footer-col footer-hours"><h3>زوروا معرضنا</h3><span>السبت – الخميس</span><span>١٠ صباحاً – ٩ مساءً</span><a href="https://maps.google.com/?q=Amman+Jordan" target="_blank" rel="noreferrer">اعرف موقعنا <span>↗</span></a></div></div>
-        <div className="footer-bottom"><span>© ٢٠٢٥ لاند مارك للأثاث. جميع الحقوق محفوظة.</span><span>صُنع بعناية في الأردن <b>✳</b></span></div>
+        <div className="footer-main"><div className="footer-brand"><p>أثاث يصنع مساحة أجمل<br />لحياتك اليومية.</p></div>
+          <div className="footer-col"><h3>تصفح منتجاتنا</h3><a href="/dining-tables" onClick={(event) => { event.preventDefault(); navigate('/dining-tables') }}>طاولات السفرة</a><a href="/baby-beds" onClick={(event) => { event.preventDefault(); navigate('/baby-beds') }}>تخوت البيبي</a></div>
+          <div className="footer-col"><h3>نحن هنا لمساعدتك</h3><a href="tel:0792809592">0792809592</a><span>عمّان، الأردن</span></div>
+          <div className="footer-col footer-hours"><h3>زورونا بمعرضنا</h3><span>السبت – الجمعة</span><span>١٠ صباحاً – ٩ مساءً</span><a href="https://maps.google.com/?q=Amman+Jordan" target="_blank" rel="noreferrer">اعرف موقعنا <span>↗</span></a></div></div>
+        <div className="footer-bottom"><span>© ٢٠٢٦ لاندمارك للمفروشات. جميع الحقوق محفوظة.</span></div>
       </footer>
 
-      <a className="whatsapp-float" href="https://wa.me/962790000000" target="_blank" rel="noreferrer" aria-label="تواصل معنا عبر واتساب"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L.1 24l6.4-1.7a12 12 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.7a10 10 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a10 10 0 0 1 2.9 7.1c0 5.4-4.5 9.9-10 9.9Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.8.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg></a>
+      <a className="whatsapp-float" href="https://wa.me/962792809592" target="_blank" rel="noreferrer" aria-label="تواصل معنا عبر واتساب"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.1 1.6 5.9L.1 24l6.4-1.7a12 12 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.7a10 10 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a10 10 0 0 1 2.9 7.1c0 5.4-4.5 9.9-10 9.9Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.8.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg></a>
     </div>
   )
 }
