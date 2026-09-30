@@ -1,21 +1,11 @@
 import { useEffect, useState } from 'react'
+import { babyBeds } from './data/babyBeds.js'
 import { diningTables } from './data/diningTables.js'
 import './App.css'
 
 const categories = [
   { name: 'طاولات الطعام', count: 'DINING TABLES', image: '/category-covers/dining-tables-cover.png' },
   { name: 'تخوت البيبي', count: 'BABY BEDS', image: '/category-covers/baby-beds-cover.png' },
-]
-
-const babyBeds = [
-  '/baby-beds/574300886_1260938942716860_7005608090368926507_n.jpg',
-  '/baby-beds/574565514_1260938946050193_5017713417928012311_n.jpg',
-  '/baby-beds/574582339_1260939059383515_3824844378531985966_n.jpg',
-  '/baby-beds/574958145_1260939326050155_2344239258223465394_n.jpg',
-  '/baby-beds/758469702_1488398126637606_1921096182496363962_n.jpg',
-  '/baby-beds/758636123_1488398156637603_1638502525511701813_n.jpg',
-  '/baby-beds/758964544_1488398113304274_6846383722858909972_n.jpg',
-  '/baby-beds/758964575_1488398149970937_5466107343115622525_n.jpg',
 ]
 
 const photo = (id, width = 900) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`
@@ -59,6 +49,9 @@ function App() {
   const selectedDiningProduct = currentPath === '/dining-tables'
     ? diningTables.find((product) => typeof product !== 'string' && product.image === selectedGalleryImage)
     : null
+  const selectedBabyBed = currentPath === '/baby-beds'
+    ? babyBeds.find((product) => product.images.includes(selectedGalleryImage))
+    : null
 
   const navigateHomeSection = (event, section) => {
     if (currentPath === '/' && !selectedGalleryImage) return
@@ -85,7 +78,7 @@ function App() {
       <main>
         {selectedGalleryImage ? <section className="dining-detail" aria-label={`عرض صورة ${currentPath === '/baby-beds' ? 'تخت بيبي' : 'طاولة الطعام'}`}>
           <button className="dining-back" type="button" onClick={closeGalleryImage}><span aria-hidden="true">→</span> العودة إلى {currentPath === '/baby-beds' ? 'تخوت البيبي' : 'طاولات الطعام'}</button>
-          <img src={selectedGalleryImage} alt={currentPath === '/baby-beds' ? 'صورة تخت بيبي' : 'صورة طاولة طعام'} />
+          {selectedBabyBed ? selectedBabyBed.images.map((image) => <img src={image} alt={`صورة ${selectedBabyBed.name}`} key={image} />) : <img src={selectedGalleryImage} alt="صورة طاولة طعام" />}
           {selectedDiningProduct && <div className="dining-product-info dining-product-info--detail">
             <h2>{selectedDiningProduct.name}</h2>
             <p className="dining-product-price"><strong>المقاس:</strong> {selectedDiningProduct.dimensions}</p>
@@ -118,8 +111,8 @@ function App() {
             <div><span className="section-kicker">غرف الأطفال</span><h2>تخوت البيبي</h2></div>
           </div>
           <div className="dining-grid">
-            {babyBeds.map((image, index) => <button className="dining-card" type="button" onClick={() => openGalleryImage(image)} aria-label={`عرض صورة تخت بيبي ${index + 1}`} key={image}>
-              <img src={image} alt="صورة تخت بيبي" loading="lazy" />
+            {babyBeds.map((product, index) => <button className="dining-card" type="button" onClick={() => openGalleryImage(product.images[0])} aria-label={`عرض صورة ${product.name}`} key={product.name}>
+              <img src={product.images[0]} alt={`صورة ${product.name}`} loading="lazy" />
             </button>)}
           </div>
         </section> : <>
