@@ -10,6 +10,10 @@ const categories = [
 
 const photo = (id, width = 900) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`
 const categoryImage = (image) => image.startsWith('/') ? image : photo(image, 700)
+const whatsappOrderUrl = (product) => {
+  const message = `أرغب بطلب ${product.name}، السعر: ${product.price}`
+  return `https://wa.me/962792809592?text=${encodeURIComponent(message)}`
+}
 
 function BrandMark() {
   return <a className="brand" href="/" aria-label="Landmark Furniture الرئيسية"><img className="brand-logo" src="/logo.png" alt="Landmark Furniture" /></a>
@@ -94,16 +98,19 @@ function App() {
             {diningTables.map((product, index) => {
               const image = typeof product === 'string' ? product : product.image
               const hasProductDetails = typeof product !== 'string'
-              return <button className={`dining-card${hasProductDetails ? ' dining-card--product' : ''}`} type="button" onClick={() => openGalleryImage(image)} aria-label={`عرض صورة طاولة الطعام ${index + 1}`} key={image}>
-                <img src={image} alt="صورة طاولة طعام" loading="lazy" />
-                {hasProductDetails && <div className="dining-product-info dining-product-info--card">
-                  <h3>{product.name}</h3>
-                  <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
-                  <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
-                  <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
-                  <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
-                </div>}
-              </button>
+              return <article className={`dining-card${hasProductDetails ? ' dining-card--product' : ''}`} key={image}>
+                <button className="product-card-trigger" type="button" onClick={() => openGalleryImage(image)} aria-label={`عرض صورة طاولة الطعام ${index + 1}`}>
+                  <img src={image} alt="صورة طاولة طعام" loading="lazy" />
+                  {hasProductDetails && <div className="dining-product-info dining-product-info--card">
+                    <h3>{product.name}</h3>
+                    <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
+                    <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
+                    <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
+                    <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
+                  </div>}
+                </button>
+                {hasProductDetails && <a className="button button-dark product-whatsapp-order" href={whatsappOrderUrl(product)} target="_blank" rel="noreferrer">اطلب عبر واتساب</a>}
+              </article>
             })}
           </div>
         </section> : currentPath === '/baby-beds' ? <section className="section dining-section" id="baby-beds">
@@ -111,20 +118,23 @@ function App() {
             <div><span className="section-kicker">غرف الأطفال</span><h2>تخوت البيبي</h2></div>
           </div>
           <div className="dining-grid">
-            {babyBeds.map((product) => <button className="dining-card dining-card--product" type="button" onClick={() => openGalleryImage(product.images[0])} aria-label={`عرض صورة ${product.name}`} key={product.name}>
-              <img src={product.images[0]} alt={`صورة ${product.name}`} loading="lazy" />
-              <div className="dining-product-info dining-product-info--card">
-                <h3>{product.name}</h3>
-                <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
-                <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
-                <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
-                <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
-                {product.features?.length > 0 && <div className="dining-product-description">
-                  <strong>المميزات:</strong>
-                  <ul>{product.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-                </div>}
-              </div>
-            </button>)}
+            {babyBeds.map((product) => <article className="dining-card dining-card--product" key={product.name}>
+              <button className="product-card-trigger" type="button" onClick={() => openGalleryImage(product.images[0])} aria-label={`عرض صورة ${product.name}`}>
+                <img src={product.images[0]} alt={`صورة ${product.name}`} loading="lazy" />
+                <div className="dining-product-info dining-product-info--card">
+                  <h3>{product.name}</h3>
+                  <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
+                  <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
+                  <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
+                  <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
+                  {product.features?.length > 0 && <div className="dining-product-description">
+                    <strong>المميزات:</strong>
+                    <ul>{product.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                  </div>}
+                </div>
+              </button>
+              <a className="button button-dark product-whatsapp-order" href={whatsappOrderUrl(product)} target="_blank" rel="noreferrer">اطلب عبر واتساب</a>
+            </article>)}
           </div>
         </section> : <>
         <section className="hero" aria-labelledby="hero-title">
