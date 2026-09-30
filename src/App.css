@@ -385,6 +385,19 @@
 #dining-tables .dining-card:focus-visible {
   outline-offset: 5px;
 }
+#dining-tables .dining-card--product {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color: inherit;
+}
+.dining-product-info { color: #293a30; }
+.dining-product-info--card { padding: 15px 17px 18px; }
+.dining-product-info--card h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.6; }
+.dining-product-price { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
+.dining-product-description { margin: 0; color: #64675f; font-size: 13px; line-height: 1.8; }
+.dining-product-info--detail { align-self: center; width: min(100%, 850px); padding-top: 22px; }
+.dining-product-info--detail h2 { margin: 0 0 10px; color: #293a30; font-size: 24px; line-height: 1.5; }
 
 @media (max-width: 850px) {
   #dining-tables { padding-block: 76px 84px; }

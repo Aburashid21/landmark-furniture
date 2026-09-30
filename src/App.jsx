@@ -7,7 +7,14 @@ const categories = [
 ]
 
 const diningTables = [
-  '/products/610983361_1313209080823179_4724190512312101976_n.jpg',
+  {
+    name: 'طاولة سفرة بورسلان بني مع كراسي كبتشينو',
+    size: '140 × 80 سم',
+    price: '170 دينار',
+    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
+    description: 'طاولة سفرة بسطح بورسلان باللون البني، مع كراسي جلد وتر بروف باللون الكبتشينو. تحتوي أسفل الطاولة على لوح خشب للحماية. مقاومة للماء، وتتحمل أوزانًا عالية، وعملية ومناسبة للمطابخ وغرف القعدة.',
+    image: '/products/610983361_1313209080823179_4724190512312101976_n.jpg',
+  },
   '/products/651279064_1370926135051473_6528512084157451101_n.jpg',
   '/products/652909389_1370927001718053_2314520121413290971_n.jpg',
   '/products/653152324_1370926971718056_2705902785945854472_n.jpg',
@@ -63,6 +70,10 @@ function App() {
     window.requestAnimationFrame(() => document.getElementById(galleryId)?.scrollIntoView())
   }
 
+  const selectedDiningProduct = currentPath === '/dining-tables'
+    ? diningTables.find((product) => typeof product !== 'string' && product.image === selectedGalleryImage)
+    : null
+
   const navigateHomeSection = (event, section) => {
     if (currentPath === '/' && !selectedGalleryImage) return
     event.preventDefault()
@@ -89,14 +100,32 @@ function App() {
         {selectedGalleryImage ? <section className="dining-detail" aria-label={`عرض صورة ${currentPath === '/baby-beds' ? 'تخت بيبي' : 'طاولة الطعام'}`}>
           <button className="dining-back" type="button" onClick={closeGalleryImage}><span aria-hidden="true">→</span> العودة إلى {currentPath === '/baby-beds' ? 'تخوت البيبي' : 'طاولات الطعام'}</button>
           <img src={selectedGalleryImage} alt={currentPath === '/baby-beds' ? 'صورة تخت بيبي' : 'صورة طاولة طعام'} />
+          {selectedDiningProduct && <div className="dining-product-info dining-product-info--detail">
+            <h2>{selectedDiningProduct.name}</h2>
+            <p className="dining-product-price"><strong>المقاس:</strong> {selectedDiningProduct.size}</p>
+            <p className="dining-product-price"><strong>السعر:</strong> {selectedDiningProduct.price}</p>
+            <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {selectedDiningProduct.deliveryAndInstallation}</p>
+            <p className="dining-product-description"><strong>الوصف:</strong> {selectedDiningProduct.description}</p>
+          </div>}
         </section> : currentPath === '/dining-tables' ? <section className="section dining-section" id="dining-tables">
           <div className="section-heading">
             <div><span className="section-kicker">غرف الطعام</span><h2>طاولات الطعام</h2></div>
           </div>
           <div className="dining-grid">
-            {diningTables.map((image, index) => <button className="dining-card" type="button" onClick={() => openGalleryImage(image)} aria-label={`عرض صورة طاولة الطعام ${index + 1}`} key={image}>
-              <img src={image} alt="صورة طاولة طعام" loading="lazy" />
-            </button>)}
+            {diningTables.map((product, index) => {
+              const image = typeof product === 'string' ? product : product.image
+              const hasProductDetails = typeof product !== 'string'
+              return <button className={`dining-card${hasProductDetails ? ' dining-card--product' : ''}`} type="button" onClick={() => openGalleryImage(image)} aria-label={`عرض صورة طاولة الطعام ${index + 1}`} key={image}>
+                <img src={image} alt="صورة طاولة طعام" loading="lazy" />
+                {hasProductDetails && <div className="dining-product-info dining-product-info--card">
+                  <h3>{product.name}</h3>
+                  <p className="dining-product-price"><strong>المقاس:</strong> {product.size}</p>
+                  <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
+                  <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.deliveryAndInstallation}</p>
+                  <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
+                </div>}
+              </button>
+            })}
           </div>
         </section> : currentPath === '/baby-beds' ? <section className="section dining-section" id="baby-beds">
           <div className="section-heading">
