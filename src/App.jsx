@@ -1,52 +1,10 @@
 import { useEffect, useState } from 'react'
+import { diningTables } from './data/diningTables.js'
 import './App.css'
 
 const categories = [
   { name: 'طاولات الطعام', count: 'DINING TABLES', image: '/category-covers/dining-tables-cover.png' },
   { name: 'تخوت البيبي', count: 'BABY BEDS', image: '/category-covers/baby-beds-cover.png' },
-]
-
-const diningTables = [
-  {
-    name: 'طاولة سفرة بورسلان لون بني مرخّم مع كراسي كبتشينو',
-    size: '140 × 80 سم',
-    price: '170 دينار',
-    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
-    description: 'طاولة سفرة بسطح بورسلان بني مرخّم، مع كراسي جلد وتر بروف باللون الكبتشينو. تحتوي أسفل الطاولة على لوح خشب للحماية. مقاومة للماء، وتتحمل أوزانًا عالية، وعملية ومناسبة للمطابخ وغرف القعدة.',
-    image: '/products/610983361_1313209080823179_4724190512312101976_n.jpg',
-  },
-  {
-    name: 'طاولة سفرة بورسلان لون أسود مرخّم مع كراسي اسود',
-    size: '140 × 80 سم',
-    price: '170 دينار',
-    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
-    description: 'طاولة سفرة بورسلان لون أسود مرخّم مع كراسي سوداء، يوجد أسفل الطاولة لوح خشب للحماية. الكراسي جلد وتر بروف، مقاومة للماء وتتحمل أوزان عالية، وعملية للمطابخ وغرف القعدة.',
-    image: '/products/651279064_1370926135051473_6528512084157451101_n.jpg',
-  },
-  {
-    name: 'طاولة سفرة بورسلان لون أبيض مع كراسي اسود',
-    size: '140 × 80 سم',
-    price: '170 دينار',
-    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
-    description: 'طاولة سفرة بورسلان لون أبيض مع كراسي سوداء، يوجد أسفل الطاولة لوح خشب للحماية. الكراسي جلد وتر بروف، مقاومة للماء وتتحمل أوزان عالية، وعملية للمطابخ وغرف القعدة.',
-    image: '/products/652909389_1370927001718053_2314520121413290971_n.jpg',
-  },
-  {
-    name: 'طاولة سفرة بورسلان لون بيج مرخّم مع كراسي بيج',
-    size: '140 × 80 سم',
-    price: '170 دينار',
-    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
-    description: 'طاولة سفرة بورسلان لون بيج مرخّم مع كراسي بيج، يوجد أسفل الطاولة لوح خشب للحماية. الكراسي جلد وتر بروف، مقاومة للماء وتتحمل أوزان عالية، وعملية للمطابخ وغرف القعدة.',
-    image: '/products/653152324_1370926971718056_2705902785945854472_n.jpg',
-  },
-  {
-    name: 'طاولة سفرة بورسلان لون سكني مع كراسي سكني',
-    size: '140 × 80 سم',
-    price: '170 دينار',
-    deliveryAndInstallation: 'شامل داخل عمّان والزرقاء',
-    description: 'طاولة سفرة بورسلان لون سكني مع كراسي سكني، يوجد أسفل الطاولة لوح خشب للحماية. الكراسي جلد وتر بروف، مقاومة للماء وتتحمل أوزان عالية، وعملية للمطابخ وغرف القعدة.',
-    image: '/products/653702750_1370926995051387_1072880539003792487_n.jpg',
-  },
 ]
 
 const babyBeds = [
@@ -130,9 +88,9 @@ function App() {
           <img src={selectedGalleryImage} alt={currentPath === '/baby-beds' ? 'صورة تخت بيبي' : 'صورة طاولة طعام'} />
           {selectedDiningProduct && <div className="dining-product-info dining-product-info--detail">
             <h2>{selectedDiningProduct.name}</h2>
-            <p className="dining-product-price"><strong>المقاس:</strong> {selectedDiningProduct.size}</p>
+            <p className="dining-product-price"><strong>المقاس:</strong> {selectedDiningProduct.dimensions}</p>
             <p className="dining-product-price"><strong>السعر:</strong> {selectedDiningProduct.price}</p>
-            <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {selectedDiningProduct.deliveryAndInstallation}</p>
+            <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {selectedDiningProduct.delivery}</p>
             <p className="dining-product-description"><strong>الوصف:</strong> {selectedDiningProduct.description}</p>
           </div>}
         </section> : currentPath === '/dining-tables' ? <section className="section dining-section" id="dining-tables">
@@ -147,9 +105,9 @@ function App() {
                 <img src={image} alt="صورة طاولة طعام" loading="lazy" />
                 {hasProductDetails && <div className="dining-product-info dining-product-info--card">
                   <h3>{product.name}</h3>
-                  <p className="dining-product-price"><strong>المقاس:</strong> {product.size}</p>
+                  <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
                   <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
-                  <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.deliveryAndInstallation}</p>
+                  <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
                   <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
                 </div>}
               </button>
