@@ -111,8 +111,19 @@ function App() {
             <div><span className="section-kicker">غرف الأطفال</span><h2>تخوت البيبي</h2></div>
           </div>
           <div className="dining-grid">
-            {babyBeds.map((product, index) => <button className="dining-card" type="button" onClick={() => openGalleryImage(product.images[0])} aria-label={`عرض صورة ${product.name}`} key={product.name}>
+            {babyBeds.map((product) => <button className="dining-card dining-card--product" type="button" onClick={() => openGalleryImage(product.images[0])} aria-label={`عرض صورة ${product.name}`} key={product.name}>
               <img src={product.images[0]} alt={`صورة ${product.name}`} loading="lazy" />
+              <div className="dining-product-info dining-product-info--card">
+                <h3>{product.name}</h3>
+                <p className="dining-product-price"><strong>المقاس:</strong> {product.dimensions}</p>
+                <p className="dining-product-price"><strong>السعر:</strong> {product.price}</p>
+                <p className="dining-product-price"><strong>التوصيل والتركيب:</strong> {product.delivery}</p>
+                <p className="dining-product-description"><strong>الوصف:</strong> {product.description}</p>
+                {product.features?.length > 0 && <div className="dining-product-description">
+                  <strong>المميزات:</strong>
+                  <ul>{product.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                </div>}
+              </div>
             </button>)}
           </div>
         </section> : <>

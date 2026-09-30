@@ -445,6 +445,12 @@
   box-shadow: 0 3px 16px rgba(37, 39, 32, .08);
   transition: transform .3s ease, box-shadow .3s ease;
 }
+#baby-beds .dining-card--product {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color: inherit;
+}
 #baby-beds .dining-card img {
   aspect-ratio: 4 / 3;
   transition: transform .55s cubic-bezier(.2,.7,.2,1);
