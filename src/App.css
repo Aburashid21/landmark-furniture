@@ -365,6 +365,7 @@
 }
 #dining-tables .dining-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 22px;
 }
 #dining-tables .dining-card {
@@ -394,6 +395,7 @@
   text-align: right;
   color: inherit;
 }
+#dining-tables .product-whatsapp-order { margin-top: auto; }
 .dining-product-info { color: #293a30; }
 .dining-product-info--card { padding: 15px 17px 18px; }
 .dining-product-info--card h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.6; }
